@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 <head>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Primary SEO -->
-  <title>LLM.org.ru — разработка AI-продуктов и LLM-ассистентов в России</title>
+  <title>LLM.org.ru — разработка AI-продуктов</title>
   <meta name="description" content="LLM.org.ru — разработка AI-продуктов и LLM-ассистентов в России. MeetLLM в Telegram: работа с текстом, кодом, файлами и изображениями.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="https://llm.org.ru/">
@@ -60,912 +60,423 @@
     ]
   }
   </script>
-
-  <style>
-    /* Reset & Base */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --bg-black: #000000;
-      --text-white: #ffffff;
-      --text-gray: #a0a0a0;
-      --border-gray: #2a2a2a;
-      --hover-gray: #0a0a0a;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-      background: var(--bg-black);
-      color: var(--text-white);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-    /* Skip link for accessibility */
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 8px;
-      background: var(--text-white);
-      color: var(--bg-black);
-      padding: 10px 14px;
-      border-radius: 8px;
-      z-index: 2000;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .skip-link:focus { left: 12px; }
-
-    /* Header */
-    .header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-gray);
-      z-index: 1000;
-    }
-
-    .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 20px;
-      font-weight: 600;
-      text-decoration: none;
-      color: var(--text-white);
-    }
-
-    .logo img { width: 40px; height: 40px; border-radius: 50%; }
-
-    .nav-menu { display: flex; list-style: none; gap: 32px; align-items: center; }
-
-    .nav-menu a {
-      color: var(--text-white);
-      text-decoration: none;
-      font-size: 15px;
-      transition: color 0.3s;
-    }
-
-    .nav-menu a:hover { color: var(--text-gray); }
-
-    .btn-github { padding: 8px 16px; border: 1px solid var(--text-white); border-radius: 6px; transition: all 0.3s; }
-
-    .btn-github:hover { background: var(--text-white); color: var(--bg-black); }
-
-    .burger { display: none; flex-direction: column; gap: 6px; cursor: pointer; }
-
-    .burger span { width: 25px; height: 2px; background: var(--text-white); transition: 0.3s; }
-
-    /* Hero */
-    .hero { padding: 180px 0 120px; position: relative; overflow: hidden; background: var(--bg-black); }
-
-    .hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-
-    .hero-content { max-width: 650px; }
-
-    .hero-title { font-size: 56px; font-weight: 800; line-height: 1.1; margin-bottom: 18px; }
-
-    .gradient-text {
-      background: linear-gradient(90deg, #ffffff 0%, #a0a0a0 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-description { font-size: 20px; color: var(--text-gray); margin-bottom: 28px; line-height: 1.65; }
-
-    .hero-highlights {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-bottom: 34px;
-      color: var(--text-gray);
-      font-size: 15px;
-    }
-
-    .hero-highlights strong { color: var(--text-white); font-weight: 650; }
-
-    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-
-    .btn {
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 550;
-      text-decoration: none;
-      transition: all 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .btn-primary { background: var(--text-white); color: var(--bg-black); }
-    .btn-primary:hover { opacity: 0.9; }
-
-    .btn-secondary { border: 1px solid var(--text-white); color: var(--text-white); }
-    .btn-secondary:hover { background: var(--text-white); color: var(--bg-black); }
-
-    /* Hero Visual */
-    .hero-visual { position: relative; width: 100%; height: 500px; }
-
-    .hero-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 16px;
-      border: 1px solid var(--border-gray);
-      opacity: 0.72;
-    }
-
-    .hero-circle { position: absolute; border: 1px solid var(--border-gray); border-radius: 50%; top: 50%; left: 50%; }
-
-    .circle-1 { width: 400px; height: 400px; transform: translate(-50%, -50%); animation: rotate 30s linear infinite; }
-    .circle-2 { width: 300px; height: 300px; transform: translate(-50%, -50%); animation: rotate 25s linear infinite reverse; }
-    .circle-3 { width: 200px; height: 200px; transform: translate(-50%, -50%); animation: rotate 20s linear infinite; }
-
-    .center-circle {
-      width: 80px;
-      height: 80px;
-      background: var(--text-white);
-      border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 10;
-    }
-
-    @keyframes rotate {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-
-    .floating-card {
-      position: absolute;
-      background: var(--bg-black);
-      border: 1px solid var(--border-gray);
-      border-radius: 12px;
-      padding: 24px;
-      min-width: 180px;
-      opacity: 0;
-      animation: fadeIn 1s ease-in forwards;
-    }
-
-    .card-1 { top: 5%; left: 0%; animation-delay: 0.3s; }
-    .card-2 { top: 50%; left: -10%; animation-delay: 0.6s; }
-    .card-3 { bottom: 10%; left: 5%; animation-delay: 0.9s; }
-
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-    .card-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-gray); margin-bottom: 8px; }
-    .card-title { font-size: 16px; font-weight: 650; color: var(--text-white); }
-
-    /* Sections */
-    main section { padding: 100px 0; border-top: 1px solid var(--border-gray); background: var(--bg-black); }
-
-    .section-title { font-size: 44px; font-weight: 800; margin-bottom: 14px; text-align: center; }
-    .section-subtitle { font-size: 18px; color: var(--text-gray); text-align: center; margin-bottom: 56px; }
-
-    /* Products */
-    .product-card {
-      max-width: 900px;
-      margin: 0 auto 60px;
-      border: 1px solid var(--border-gray);
-      border-radius: 16px;
-      padding: 48px;
-      background: var(--bg-black);
-    }
-
-    .product-header { display: flex; align-items: center; gap: 20px; margin-bottom: 26px; }
-
-    .product-logo img { width: 60px; height: 60px; border-radius: 50%; }
-
-    .product-info h3 { font-size: 30px; font-weight: 800; margin-bottom: 8px; }
-    .product-tagline { font-size: 16px; color: var(--text-gray); }
-
-    .product-description { font-size: 18px; line-height: 1.8; margin-bottom: 40px; color: var(--text-gray); }
-
-    .product-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-bottom: 44px; }
-
-    .feature { text-align: left; }
-
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      border: 1px solid var(--text-white);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      font-size: 20px;
-      font-weight: 650;
-    }
-
-    .feature h4 { font-size: 18px; margin-bottom: 8px; }
-    .feature p { font-size: 14px; color: var(--text-gray); line-height: 1.6; }
-
-    /* Pricing */
-    .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 10px; }
-
-    .pricing-card {
-      border: 1px solid var(--border-gray);
-      border-radius: 12px;
-      padding: 32px;
-      background: var(--bg-black);
-      position: relative;
-      transition: all 0.3s;
-    }
-
-    .pricing-card:hover { border-color: var(--text-white); }
-    .pricing-card.featured { border-color: var(--text-white); }
-
-    .badge {
-      position: absolute;
-      top: -12px;
-      right: 24px;
-      background: var(--text-white);
-      color: var(--bg-black);
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .pricing-card h4 { font-size: 22px; margin-bottom: 14px; }
-    .price { font-size: 34px; font-weight: 850; margin-bottom: 20px; }
-
-    .pricing-features { list-style: none; margin-bottom: 28px; }
-    .pricing-features li { padding: 12px 0; border-bottom: 1px solid var(--border-gray); font-size: 15px; }
-    .pricing-features li:last-child { border-bottom: none; }
-
-    .pricing-card .btn { width: 100%; justify-content: center; }
-
-    /* SEO Text / About */
-    .seo-text {
-      max-width: 900px;
-      margin: 0 auto;
-      border: 1px solid var(--border-gray);
-      border-radius: 16px;
-      padding: 42px;
-      color: var(--text-gray);
-    }
-    .seo-text h3 { color: var(--text-white); font-size: 22px; margin-bottom: 12px; }
-    .seo-text p { margin-bottom: 12px; }
-    .seo-text ul { margin: 10px 0 0 18px; }
-    .seo-text li { margin: 6px 0; }
-
-    /* Coming Soon */
-    .coming-soon {
-      text-align: center;
-      padding: 60px 40px;
-      border: 1px dashed var(--border-gray);
-      border-radius: 16px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .coming-soon-icon {
-      width: 80px;
-      height: 80px;
-      border: 2px solid var(--text-white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-      font-size: 32px;
-      font-weight: 850;
-    }
-
-    .coming-soon h3 { font-size: 26px; margin-bottom: 14px; }
-    .coming-soon p { font-size: 16px; color: var(--text-gray); }
-
-    /* Mission */
-    .mission .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .mission-content { max-width: 650px; }
-
-    .mission-text { font-size: 18px; line-height: 1.8; margin-bottom: 18px; color: var(--text-gray); }
-    .mission-text strong { color: var(--text-white); font-weight: 650; }
-
-    .mission-image {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 16px;
-      border: 1px solid var(--border-gray);
-    }
-
-    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px; max-width: 900px; margin: 60px auto 0; }
-
-    .stat-card { text-align: center; padding: 40px 24px; border: 1px solid var(--border-gray); border-radius: 12px; background: var(--bg-black); }
-    .stat-number { font-size: 56px; font-weight: 850; margin-bottom: 12px; }
-    .stat-label { font-size: 16px; color: var(--text-gray); }
-
-    /* Team */
-    .team-card { max-width: 450px; margin: 0 auto; text-align: center; padding: 48px; border: 1px solid var(--border-gray); border-radius: 16px; background: var(--bg-black); }
-
-    .team-avatar { margin-bottom: 24px; }
-
-    .avatar-circle {
-      width: 120px;
-      height: 120px;
-      background: var(--bg-black);
-      border: 2px solid var(--text-white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-      font-size: 32px;
-      font-weight: 850;
-    }
-
-    .team-card h3 { font-size: 26px; margin-bottom: 8px; }
-    .team-role { font-size: 16px; color: var(--text-gray); margin-bottom: 14px; }
-    .team-bio { font-size: 15px; line-height: 1.6; color: var(--text-gray); }
-
-    /* Technology */
-    .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 60px; }
-
-    .tech-card { border: 1px solid var(--border-gray); border-radius: 16px; overflow: hidden; background: var(--bg-black); }
-
-    .tech-image { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--border-gray); }
-
-    .tech-content { padding: 24px; }
-    .tech-content h3 { font-size: 20px; margin-bottom: 10px; }
-    .tech-content p { color: var(--text-gray); line-height: 1.6; }
-
-    /* FAQ */
-    .faq {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      gap: 14px;
-    }
-
-    details {
-      border: 1px solid var(--border-gray);
-      border-radius: 14px;
-      padding: 16px 18px;
-      background: rgba(255,255,255,0.02);
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 16px;
-      color: var(--text-white);
-      list-style: none;
-    }
-
-    details p { margin-top: 10px; color: var(--text-gray); line-height: 1.7; }
-
-    /* Contact */
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; max-width: 700px; margin: 0 auto; }
-
-    .contact-card {
-      padding: 48px 32px;
-      border: 1px solid var(--border-gray);
-      border-radius: 16px;
-      text-align: center;
-      text-decoration: none;
-      color: var(--text-white);
-      background: var(--bg-black);
-      transition: all 0.3s;
-    }
-
-    .contact-card:hover { border-color: var(--text-white); }
-
-    .contact-icon {
-      width: 64px;
-      height: 64px;
-      border: 1px solid var(--text-white);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-    }
-
-    .contact-card h3 { font-size: 22px; margin-bottom: 8px; }
-    .contact-card p { font-size: 16px; color: var(--text-gray); }
-
-    /* Footer */
-    .footer { border-top: 1px solid var(--border-gray); padding: 60px 0; text-align: center; background: var(--bg-black); }
-
-    .footer-content { max-width: 600px; margin: 0 auto; }
-
-    .footer-logo { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 20px; font-weight: 650; margin-bottom: 16px; }
-
-    .footer-logo img { width: 32px; height: 32px; border-radius: 50%; }
-
-    .footer-text { color: var(--text-gray); margin-bottom: 8px; }
-    .footer-copy { font-size: 14px; color: var(--text-gray); }
-
-    /* Responsive */
-    @media (max-width: 968px) {
-      .hero .container, .mission .container { grid-template-columns: 1fr; }
-      .hero-visual { height: 400px; }
-      .hero-title { font-size: 44px; }
-      .nav-menu { display: none; }
-      .burger { display: flex; }
-      .nav-menu.active {
-        display: flex;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--bg-black);
-        flex-direction: column;
-        padding: 24px;
-        border-bottom: 1px solid var(--border-gray);
-      }
-      .product-card { padding: 32px 24px; }
-      .section-title { font-size: 34px; }
-      .mission-image { order: -1; }
-      .seo-text { padding: 32px 24px; }
-    }
-
-    @media (max-width: 640px) {
-      .hero { padding: 140px 0 80px; }
-      .hero-title { font-size: 34px; }
-      .hero-description { font-size: 18px; }
-      .product-features { grid-template-columns: 1fr; }
-      .pricing { grid-template-columns: 1fr; }
-      .stats { grid-template-columns: 1fr; }
-      .floating-card { display: none; }
-      .tech-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+    
+    <style>
+        :root {
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+        body {
+            font-family: var(--font-sans);
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .font-mono {
+            font-family: var(--font-mono);
+        }
+        /* OpenAI-like minimalist hover effects */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        /* Thin borders for that clean look */
+        .border-thin {
+            border: 1px solid #e5e5e5;
+        }
+    </style>
 </head>
-<body>
-  <a class="skip-link" href="#content">Перейти к содержимому</a>
+<body class="antialiased text-black">
 
-  <!-- Header -->
-  <header class="header" role="banner">
-    <div class="container">
-      <nav class="nav" role="navigation" aria-label="Основная навигация">
-        <a class="logo" href="#hero" aria-label="LLM.org.ru — на главную">
-          <img src="logo.png" alt="Логотип LLM.org.ru" loading="lazy">
-          <span>LLM.org.ru</span>
-        </a>
-
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="#hero">Главная</a></li>
-          <li><a href="#products">AI‑продукты</a></li>
-          <li><a href="#technology">Технологии LLM</a></li>
-          <li><a href="#mission">Миссия</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Контакты</a></li>
-          <li><a href="https://github.com/llm-org-ru" target="_blank" rel="noopener" class="btn-github">GitHub</a></li>
-        </ul>
-
-        <div class="burger" id="burger" aria-label="Открыть меню" role="button" tabindex="0">
-          <span></span><span></span><span></span>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <main id="content">
-    <!-- Hero -->
-    <section id="hero" class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1 class="hero-title">
-            Разработка <span class="gradient-text">AI‑продуктов и LLM‑ассистентов</span> в России
-          </h1>
-          <p class="hero-description">
-            LLM.org.ru — российская команда разработки, которая создаёт AI‑сервисы и LLM‑решения: генерация текста, помощь с кодом,
-            анализ файлов и работа с изображениями.
-          </p>
-
-          <div class="hero-highlights">
-            <div><strong>MeetLLM</strong> — AI‑ассистент в Telegram для повседневных задач и разработки.</div>
-            <div><strong>Фокус</strong>: качество ответов, скорость, удобство и практическая польза.</div>
-            <div><strong>Подход</strong>: прозрачность, инженерная дисциплина и рост продукта через обратную связь.</div>
-          </div>
-
-          <div class="hero-buttons">
-            <a href="#products" class="btn btn-primary">Посмотреть AI‑продукты</a>
-            <a href="https://t.me/meetllm_bot" target="_blank" rel="noopener" class="btn btn-secondary" aria-label="Открыть MeetLLM в Telegram">
-              <!-- Fixed Telegram SVG (корректная иконка) -->
-              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">
-                <path d="M22 3.01L2.8 10.76c-1.31.53-1.3 1.27-.24 1.6l4.93 1.54 1.89 5.78c.23.63.12.88.8.88.52 0 .75-.24 1.03-.51l2.37-2.31 4.93 3.64c.91.5 1.56.24 1.79-.84L23.95 4c.33-1.34-.51-1.94-1.95-.99zM9.9 15.05l-.41 4.33-1.27-4.08 10.38-9.33c.45-.41.1-.64-.35-.37L7.7 12.9l-4.05-1.27 16.02-6.18c.74-.28 1.38.18.91.62L9.9 15.05z"/>
-              </svg>
-              Открыть MeetLLM
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 bg-black text-white border-b border-white/10">
+        <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 z-50">
+                <img src="logo.png" alt="LLM.org.ru" class="h-8 w-auto">
             </a>
-          </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/80">
+                <a href="#about" class="nav-link hover:text-white transition-colors">Исследования</a>
+                <a href="#products" class="nav-link hover:text-white transition-colors">Продукты</a>
+                <a href="#team" class="nav-link hover:text-white transition-colors">Команда</a>
+                <a href="#faq" class="nav-link hover:text-white transition-colors">FAQ</a>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="https://github.com/llm-org-ru" target="_blank" class="text-white/60 hover:text-white transition-colors">
+                    <i class="fa-brands fa-github text-lg"></i>
+                </a>
+                <a href="https://t.me/MeetLLM_bot" target="_blank" class="bg-white text-black px-4 py-2 text-sm font-medium hover:bg-white/90 transition-colors">
+                    MeetLLM
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 z-50 text-white">
+                <div class="w-6 h-0.5 bg-white mb-1.5 transition-all"></div>
+                <div class="w-6 h-0.5 bg-white transition-all"></div>
+            </button>
         </div>
 
-        <div class="hero-visual" aria-hidden="true">
-          <img src="https://img.freepik.com/premium-photo/black-servers-server-room_410516-45362.jpg" alt="Инфраструктура для AI и LLM моделей: серверы и дата-центр" class="hero-image" loading="lazy">
-          <div class="hero-circle circle-1"></div>
-          <div class="hero-circle circle-2"></div>
-          <div class="hero-circle circle-3"></div>
-          <div class="center-circle"></div>
-
-          <div class="floating-card card-1">
-            <div class="card-label">Возможность</div>
-            <div class="card-title">Генерация текста</div>
-          </div>
-          <div class="floating-card card-2">
-            <div class="card-label">Возможность</div>
-            <div class="card-title">Помощь с кодом</div>
-          </div>
-          <div class="floating-card card-3">
-            <div class="card-label">Возможность</div>
-            <div class="card-title">Анализ файлов</div>
-          </div>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-black z-40 hidden flex-col pt-24 px-6 space-y-6">
+            <a href="#about" class="text-2xl font-medium block text-white hover:text-white/70">Исследования</a>
+            <a href="#products" class="text-2xl font-medium block text-white hover:text-white/70">Продукты</a>
+            <a href="#team" class="text-2xl font-medium block text-white hover:text-white/70">Команда</a>
+            <a href="#faq" class="text-2xl font-medium block text-white hover:text-white/70">FAQ</a>
+            <div class="pt-8 border-t border-white/10">
+                <a href="https://t.me/MeetLLM_bot" class="block w-full bg-white text-black text-center py-4 text-lg font-medium hover:bg-white/90">Запустить MeetLLM</a>
+            </div>
         </div>
-      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-24 md:pt-48 md:pb-32 px-6">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="max-w-4xl">
+                <div class="fade-in-up">
+                    <span class="font-mono text-xs uppercase tracking-wider text-black/50 mb-6 block">Research & Development</span>
+                    <h1 class="text-5xl md:text-7xl font-medium tracking-tighter leading-[1.1] mb-8">
+                        Создаем инфраструктуру<br>
+                        для прикладного<br>
+                        интеллекта.
+                    </h1>
+                </div>
+                
+                <p class="fade-in-up delay-100 text-xl md:text-2xl text-black/60 leading-relaxed max-w-2xl mb-12">
+                    LLM.org.ru — это команда инженеров, превращающая возможности нейросетей в надежные инструменты. Мы не предсказываем будущее, мы его кодим.
+                </p>
+
+                <div class="fade-in-up delay-200 flex flex-col sm:flex-row gap-4">
+                    <a href="#products" class="inline-flex items-center justify-center px-6 py-3 border border-black text-black text-sm font-medium hover:bg-black hover:text-white transition-colors">
+                        Наши разработки
+                    </a>
+                    <a href="https://github.com/llm-org-ru" target="_blank" class="inline-flex items-center justify-center px-6 py-3 text-black/60 hover:text-black text-sm font-medium transition-colors">
+                        GitHub <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Products -->
-    <section id="products" class="products">
-      <div class="container">
-        <h2 class="section-title">AI‑продукты и LLM‑сервисы</h2>
-        <p class="section-subtitle">Практичные решения на базе нейросетей для пользователей и разработчиков</p>
-
-        <article class="product-card" itemscope itemtype="https://schema.org/SoftwareApplication">
-          <meta itemprop="name" content="MeetLLM">
-          <meta itemprop="applicationCategory" content="BusinessApplication">
-          <meta itemprop="operatingSystem" content="Telegram">
-
-          <div class="product-header">
-            <div class="product-logo">
-              <img src="logo.png" alt="MeetLLM — логотип продукта" loading="lazy">
+    <!-- Mission / About -->
+    <section id="about" class="py-24 border-t border-black/5 bg-gray-50">
+        <div class="max-w-[1400px] mx-auto px-6 grid md:grid-cols-2 gap-16">
+            <div>
+                <h2 class="text-3xl font-medium tracking-tight mb-6">Инженерный прагматизм</h2>
+                <div class="space-y-6 text-lg text-black/70 leading-relaxed">
+                    <p>
+                        В мире хайпа вокруг AI мы выбираем путь измеримой пользы. Наша лаборатория фокусируется на архитектуре, оптимизации и безопасном внедрении больших языковых моделей.
+                    </p>
+                    <p>
+                        Мы исследуем пределы возможностей LLM, чтобы строить системы, которые работают быстро, предсказуемо и решают реальные задачи пользователей, а не просто генерируют текст.
+                    </p>
+                </div>
             </div>
-            <div class="product-info">
-              <h3 itemprop="name">MeetLLM</h3>
-              <p class="product-tagline">AI‑ассистент в Telegram для текста, кода, файлов и изображений</p>
+            
+            <div class="grid grid-cols-1 gap-6">
+                <div class="border-t border-black/10 pt-4">
+                    <h3 class="font-mono text-sm uppercase tracking-wide text-black/40 mb-2">01 / Скорость</h3>
+                    <p class="text-black/80">Оптимизация инференса для мгновенного отклика. Мы боремся за каждую миллисекунду задержки.</p>
+                </div>
+                <div class="border-t border-black/10 pt-4">
+                    <h3 class="font-mono text-sm uppercase tracking-wide text-black/40 mb-2">02 / Точность</h3>
+                    <p class="text-black/80">Использование RAG и векторного поиска для минимизации галлюцинаций и работы с фактами.</p>
+                </div>
+                <div class="border-t border-black/10 pt-4">
+                    <h3 class="font-mono text-sm uppercase tracking-wide text-black/40 mb-2">03 / Приватность</h3>
+                    <p class="text-black/80">Архитектура, ставящая безопасность данных пользователя на первое место.</p>
+                </div>
             </div>
-          </div>
-
-          <div class="product-description" itemprop="description">
-            <p>
-              MeetLLM помогает решать рабочие и учебные задачи: писать тексты, анализировать и улучшать код, разбирать документы,
-              а также работать с изображениями. Формат Telegram делает доступ к AI быстрым и удобным.
-            </p>
-          </div>
-
-          <div class="product-features">
-            <div class="feature">
-              <div class="feature-icon">T</div>
-              <h4>Генерация и редактирование текста</h4>
-              <p>Статьи, инструкции, письма, сценарии, резюме — с контролем структуры и смысла</p>
-            </div>
-            <div class="feature">
-              <div class="feature-icon">C</div>
-              <h4>Помощь в разработке</h4>
-              <p>Подсказки по архитектуре, рефакторинг, отладка, генерация кода и объяснения</p>
-            </div>
-            <div class="feature">
-              <div class="feature-icon">F</div>
-              <h4>Обработка файлов</h4>
-              <p>Суммаризация документов, извлечение данных, структурирование и анализ</p>
-            </div>
-            <div class="feature">
-              <div class="feature-icon">I</div>
-              <h4>Работа с изображениями</h4>
-              <p>Анализ, генерация и помощь с визуальным контентом под задачи пользователя</p>
-            </div>
-          </div>
-
-          <div class="pricing" aria-label="Тарифы MeetLLM">
-            <div class="pricing-card">
-              <h4>Freemium</h4>
-              <div class="price">Бесплатно</div>
-              <ul class="pricing-features">
-                <li>20 текстовых запросов</li>
-                <li>5 запросов с кодом</li>
-                <li>5 запросов с изображениями</li>
-              </ul>
-              <a href="https://t.me/meetllm_bot" target="_blank" rel="noopener" class="btn btn-secondary">Начать бесплатно</a>
-            </div>
-
-            <div class="pricing-card featured">
-              <div class="badge">Популярно</div>
-              <h4>Premium</h4>
-              <div class="price">Подписка</div>
-              <ul class="pricing-features">
-                <li>1000 текстовых запросов</li>
-                <li>500 запросов с кодом</li>
-                <li>300 запросов с изображениями</li>
-                <li>Приоритетная поддержка</li>
-              </ul>
-              <a href="https://t.me/meetllm_bot" target="_blank" rel="noopener" class="btn btn-primary">Оформить Premium</a>
-            </div>
-          </div>
-        </article>
-
-        <div class="coming-soon" aria-label="Новые продукты скоро">
-          <div class="coming-soon-icon">+</div>
-          <h3>Готовим новые AI‑продукты</h3>
-          <p>В разработке новые сервисы и интеграции, чтобы сделать LLM‑технологии ещё доступнее</p>
         </div>
-
-        <!-- SEO / AI Search: плотный контекст для выдачи и нейропоиска -->
-        <div class="seo-text" aria-label="О компании и направлениях">
-          <h3>Чем занимается LLM.org.ru</h3>
-          <p>
-            Мы разрабатываем AI‑продукты и LLM‑ассистентов: от концепции и UX до инфраструктуры и эксплуатации.
-            Упор — на качество ответов, полезность и инженерную надёжность.
-          </p>
-          <p>
-            Основные направления: <strong>AI‑ассистенты</strong>, <strong>генерация и обработка текста</strong>, <strong>помощь в программировании</strong>,
-            <strong>обработка документов</strong> и <strong>работа с изображениями</strong>.
-          </p>
-          <ul>
-            <li>LLM‑решения для повседневных задач и разработки</li>
-            <li>Интеграции с мессенджерами и сервисами</li>
-            <li>Оптимизация скорости и качества ответов</li>
-          </ul>
-        </div>
-      </div>
     </section>
 
-    <!-- Technology -->
-    <section id="technology" class="technology">
-      <div class="container">
-        <h2 class="section-title">Технологии нейросетей и LLM‑инфраструктура</h2>
-        <p class="section-subtitle">Современный стек, масштабирование и оптимизация производительности</p>
-
-        <div class="tech-grid">
-          <article class="tech-card">
-            <img src="https://i.pinimg.com/originals/4b/09/24/4b092459adee00a6c15c62172cc153a2.jpg" alt="Нейронные сети и генеративный ИИ: обработка языка и генерация контента" class="tech-image" loading="lazy">
-            <div class="tech-content">
-              <h3>Нейронные сети и генеративный ИИ</h3>
-              <p>Используем современные архитектуры для NLP, генерации текста и поддержки задач разработки</p>
+    <!-- Products Section -->
+    <section id="products" class="py-24 px-6 bg-black text-white">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="mb-16 border-b border-white/20 pb-8 flex flex-col md:flex-row justify-between items-end gap-6">
+                <div>
+                    <span class="font-mono text-xs text-white/50 mb-2 block">Экосистема</span>
+                    <h2 class="text-4xl md:text-5xl font-medium">Реализованные решения</h2>
+                </div>
+                <p class="text-white/60 max-w-md text-right md:text-left">
+                    Технологии, которые мы разрабатываем, доступны уже сейчас в виде готовых продуктов.
+                </p>
             </div>
-          </article>
 
-          <article class="tech-card">
-            <img src="https://img.freepik.com/premium-photo/black-white-image-showing-bottom-server-rack-data-center-with-depth-field_410516-37417.jpg" alt="Облачная инфраструктура для LLM сервисов: надёжность и масштабирование" class="tech-image" loading="lazy">
-            <div class="tech-content">
-              <h3>Облачная инфраструктура</h3>
-              <p>Масштабируемая инфраструктура и мониторинг, чтобы сервисы работали стабильно и предсказуемо</p>
+            <div class="grid md:grid-cols-12 gap-8">
+                <!-- MeetLLM Card -->
+                <div class="md:col-span-8 group relative border border-white/10 hover:border-white/30 transition-colors bg-white/5 p-8 md:p-12 overflow-hidden">
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-12">
+                            <div>
+                                <h3 class="text-3xl font-medium mb-2">MeetLLM</h3>
+                                <div class="inline-flex items-center gap-2 px-2 py-1 bg-green-500/10 text-green-400 text-xs font-mono uppercase">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span> Online
+                                </div>
+                            </div>
+                            <i class="fa-brands fa-telegram text-4xl text-white/20 group-hover:text-white/80 transition-colors"></i>
+                        </div>
+                        
+                        <p class="text-xl text-white/70 mb-8 max-w-2xl leading-relaxed">
+                            Интеллектуальный ассистент, интегрированный в Telegram. Полноценная рабочая среда для генерации кода, анализа документов и работы с изображениями. 
+                        </p>
+
+                        <div class="grid sm:grid-cols-2 gap-y-4 gap-x-8 mb-12 text-sm text-white/50 font-mono">
+                            <div class="flex items-center gap-2">
+                                <span class="w-1 h-1 bg-white/50"></span> Python & JS Code Gen
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-1 h-1 bg-white/50"></span> File Analysis
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-1 h-1 bg-white/50"></span> Vision Capabilities
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-1 h-1 bg-white/50"></span> Multi-model Support
+                            </div>
+                        </div>
+
+                        <a href="https://t.me/MeetLLM_bot" target="_blank" class="inline-flex items-center text-white font-medium hover:underline decoration-1 underline-offset-4">
+                            Запустить в Telegram <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- R&D Card -->
+                <div class="md:col-span-4 border border-white/10 p-8 flex flex-col justify-between bg-white/5">
+                    <div>
+                        <div class="font-mono text-xs text-white/40 mb-6 uppercase">// In Progress</div>
+                        <h3 class="text-2xl font-medium mb-4">Enterprise Integration</h3>
+                        <p class="text-white/60 text-sm leading-relaxed mb-6">
+                            Разработка закрытых контуров для корпоративных клиентов. RAG-системы для безопасного поиска по внутренней документации компании без передачи данных во внешние облака.
+                        </p>
+                    </div>
+                    <div class="mt-8">
+                         <span class="inline-block border border-white/20 px-3 py-1 text-xs font-mono text-white/50">Coming Soon</span>
+                    </div>
+                </div>
             </div>
-          </article>
-
-          <article class="tech-card">
-            <img src="https://www.chicagobooth.edu/-/media/project/chicago-booth/chicago-booth-review/2020/april/chicago-booth-keyboard-typing-cbr.jpg?w=1920&h=800&hash=68D175DD0019E6D9BD93E3D37EC033F4" alt="Оптимизация производительности: скорость и качество ответов LLM" class="tech-image" loading="lazy">
-            <div class="tech-content">
-              <h3>Оптимизация качества и скорости</h3>
-              <p>Улучшаем пайплайны, промпты и производительность, чтобы ответы были быстрее и точнее</p>
-            </div>
-          </article>
         </div>
-      </div>
-    </section>
-
-    <!-- Mission -->
-    <section id="mission" class="mission">
-      <div class="container">
-        <div class="mission-content">
-          <h2 class="section-title" style="text-align: left;">Миссия: сделать AI полезным и доступным</h2>
-          <p class="mission-text">
-            Мы создаём <strong>качественные и полезные AI‑продукты</strong>, которые помогают людям работать быстрее, учиться эффективнее
-            и решать задачи без лишней сложности.
-          </p>
-          <p class="mission-text">
-            Для нас важно: прозрачность разработки, практическая польза и устойчивый рост продукта. По мере развития —
-            будем делиться наработками с сообществом.
-          </p>
-        </div>
-        <div>
-          <img src="https://img.freepik.com/premium-photo/abstract-white-line-digital-network-pattern-black-background_1174990-177614.jpg" alt="Цифровая сеть и данные: визуальная метафора LLM и AI инфраструктуры" class="mission-image" loading="lazy">
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="stats" aria-label="Ключевые показатели">
-          <div class="stat-card">
-            <div class="stat-number">1</div>
-            <div class="stat-label">Активный продукт</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">∞</div>
-            <div class="stat-label">Идей в разработке</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Фокус на качестве</div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- Team -->
-    <section id="team" class="team">
-      <div class="container">
-        <h2 class="section-title">Команда разработки AI</h2>
-        <p class="section-subtitle">Инженерный подход, быстрые итерации и ответственность за результат</p>
+    <section id="team" class="py-24 px-6 border-b border-black/5">
+        <div class="max-w-[1400px] mx-auto">
+            <h2 class="text-3xl font-medium tracking-tight mb-16">Команда</h2>
+            
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Founder Profile -->
+                <div class="md:col-span-1">
+                    <div class="w-20 h-20 bg-gray-100 mb-6 flex items-center justify-center">
+                        <i class="fa-solid fa-user text-2xl text-black/20"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-1">Данил Агишев</h3>
+                    <p class="text-sm font-mono text-black/50 mb-6">Founder & Lead Engineer</p>
+                    <p class="text-black/70 leading-relaxed mb-6">
+                        Архитектор платформы. Отвечает за технологическое видение и качество инженерных решений. Верит, что ИИ должен быть незаметным, но незаменимым инструментом профессионала.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/llm-org-ru" class="text-black/40 hover:text-black transition-colors">
+                            <i class="fa-brands fa-github text-lg"></i>
+                        </a>
+                    </div>
+                </div>
 
-        <div class="team-card">
-          <div class="team-avatar">
-            <div class="avatar-circle">АД</div>
-          </div>
-          <h3>Агишев Данил</h3>
-          <p class="team-role">Основатель и разработчик</p>
-          <p class="team-bio">Создатель LLM.org.ru и MeetLLM. Фокус — качество, удобство, скорость и практическая польза AI‑продуктов.</p>
+                <!-- Philosophy/Culture Block -->
+                <div class="md:col-span-2 bg-gray-50 p-8 md:p-12">
+                    <h3 class="text-xl font-medium mb-6">Культура разработки</h3>
+                    <div class="grid sm:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-medium mb-2">Прозрачность</h4>
+                            <p class="text-sm text-black/60">
+                                Мы открыто говорим о возможностях и ограничениях наших моделей. Никаких «черных ящиков» в обещаниях клиентам.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2">Качество кода</h4>
+                            <p class="text-sm text-black/60">
+                                Инфраструктура пишется с расчетом на масштабируемость. Чистота архитектуры важнее скорости релиза фич.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- FAQ (AI-search friendly) -->
-    <section id="faq">
-      <div class="container">
-        <h2 class="section-title">FAQ по MeetLLM и LLM.org.ru</h2>
-        <p class="section-subtitle">Короткие ответы, которые легко подхватывают поисковики и нейросервисы</p>
+    <!-- FAQ -->
+    <section id="faq" class="py-24 px-6 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-medium tracking-tight mb-12">Вопросы и ответы</h2>
+            
+            <div class="divide-y divide-black/10">
+                <details class="group py-6 cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium pr-4 list-none">
+                        <span>Чем занимается LLM.org.ru?</span>
+                        <span class="transition-transform group-open:rotate-45">
+                            <i class="fa-solid fa-plus text-black/40"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-black/70 leading-relaxed">
+                        Мы — независимая технологическая лаборатория. Мы разрабатываем, обучаем и интегрируем AI-решения. Наш фокус — создание удобных интерфейсов и надежного бэкенда для взаимодействия с большими языковыми моделями.
+                    </div>
+                </details>
 
-        <div class="faq">
-          <details>
-            <summary>Что такое MeetLLM?</summary>
-            <p>MeetLLM — AI‑ассистент в Telegram, который помогает с текстом, кодом, файлами и изображениями. Он подходит для работы, учёбы и разработки.</p>
-          </details>
-          <details>
-            <summary>Для кого подходит LLM‑ассистент?</summary>
-            <p>Для разработчиков, специалистов, студентов и всех, кому нужен быстрый помощник: написать текст, улучшить код, разобрать документ или подготовить материал.</p>
-          </details>
-          <details>
-            <summary>Чем LLM.org.ru занимается кроме бота?</summary>
-            <p>Мы развиваем линейку AI‑продуктов и сервисов, строим инфраструктуру, улучшаем качество ответов и готовим новые решения для пользователей и бизнеса.</p>
-          </details>
-          <details>
-            <summary>Как начать пользоваться MeetLLM?</summary>
-            <p>Откройте Telegram и перейдите к боту @meetllm_bot. Доступен бесплатный режим и Premium‑подписка.</p>
-          </details>
+                <details class="group py-6 cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium pr-4 list-none">
+                        <span>MeetLLM — это просто еще один чат-бот?</span>
+                        <span class="transition-transform group-open:rotate-45">
+                            <i class="fa-solid fa-plus text-black/40"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-black/70 leading-relaxed">
+                        Это комплексный инструмент. В отличие от простых ботов-оболочек, MeetLLM обладает собственной логикой обработки контекста, умеет работать с файлами и кодом на глубоком уровне, и постоянно обновляется новейшими моделями (GPT-4o, Claude 3.5 Sonnet и др.) через единый интерфейс.
+                    </div>
+                </details>
+
+                <details class="group py-6 cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium pr-4 list-none">
+                        <span>Вы разрабатываете решения на заказ?</span>
+                        <span class="transition-transform group-open:rotate-45">
+                            <i class="fa-solid fa-plus text-black/40"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-black/70 leading-relaxed">
+                        В данный момент мы сфокусированы на развитии собственной платформы и продукта MeetLLM. Однако мы всегда открыты к диалогу о технологическом партнерстве в сфере Enterprise Integration.
+                    </div>
+                </details>
+            </div>
         </div>
+    </section>
 
-        <!-- Structured Data: FAQPage -->
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Что такое MeetLLM?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "MeetLLM — AI‑ассистент в Telegram, который помогает с текстом, кодом, файлами и изображениями. Подходит для работы, учёбы и разработки."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Для кого подходит LLM‑ассистент?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Для разработчиков, специалистов, студентов и всех, кому нужен быстрый помощник: написать текст, улучшить код, разобрать документ или подготовить материал."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Чем LLM.org.ru занимается кроме бота?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "LLM.org.ru развивает линейку AI‑продуктов и сервисов, строит инфраструктуру, улучшает качество ответов и готовит новые решения для пользователей и бизнеса."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Как начать пользоваться MeetLLM?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Откройте Telegram и перейдите к боту @meetllm_bot. Доступен бесплатный режим и Premium‑подписка."
-              }
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/10 bg-black text-white">
+        <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <div>
+                <div class="flex items-center gap-2 font-semibold mb-2">
+                    <span class="w-2 h-2 bg-white"></span>
+                    LLM.org.ru
+                </div>
+                <p class="text-xs text-white/40 max-w-xs">
+                    Разработка инфраструктуры искусственного интеллекта.<br>
+                    Москва, Россия. Est. 2024.
+                </p>
+            </div>
+
+            <div class="flex gap-8 text-sm font-medium text-white/70">
+                <a href="https://t.me/MeetLLM_bot" class="hover:text-white transition-colors">Telegram</a>
+                <a href="https://github.com/llm-org-ru" class="hover:text-white transition-colors">GitHub</a>
+                <a href="mailto:contact@llm.org.ru" class="hover:text-white transition-colors">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const lines = btn.querySelectorAll('div');
+        let isMenuOpen = false;
+
+        function toggleMenu(open) {
+            isMenuOpen = open;
+            if (isMenuOpen) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+                
+                // Animate Burger to X
+                lines[0].classList.remove('mb-1.5');
+                lines[0].classList.add('rotate-45', 'translate-y-1'); // Adjusted for centering
+                lines[1].classList.add('-rotate-45', '-translate-y-1');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                document.body.style.overflow = '';
+                
+                // Revert X to Burger
+                lines[0].classList.add('mb-1.5');
+                lines[0].classList.remove('rotate-45', 'translate-y-1');
+                lines[1].classList.remove('-rotate-45', '-translate-y-1');
             }
-          ]
         }
-        </script>
-      </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2 class="section-title">Контакты и поддержка</h2>
-        <p class="section-subtitle">Свяжитесь с нами в Telegram или посмотрите исходники и проекты на GitHub</p>
+        btn.addEventListener('click', () => toggleMenu(!isMenuOpen));
 
-        <div class="contact-grid">
-          <a href="https://t.me/llm_org_ru" target="_blank" rel="noopener" class="contact-card" aria-label="Открыть MeetLLM в Telegram">
-            <div class="contact-icon" aria-hidden="true">
-              <!-- Fixed Telegram SVG (тот же, что в hero) -->
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M22 3.01L2.8 10.76c-1.31.53-1.3 1.27-.24 1.6l4.93 1.54 1.89 5.78c.23.63.12.88.8.88.52 0 .75-.24 1.03-.51l2.37-2.31 4.93 3.64c.91.5 1.56.24 1.79-.84L23.95 4c.33-1.34-.51-1.94-1.95-.99zM9.9 15.05l-.41 4.33-1.27-4.08 10.38-9.33c.45-.41.1-.64-.35-.37L7.7 12.9l-4.05-1.27 16.02-6.18c.74-.28 1.38.18.91.62L9.9 15.05z"/>
-              </svg>
-            </div>
-            <h3>Telegram</h3>
-            <p>llm_org_ru</p>
-          </a>
-
-          <a href="https://github.com/llm-org-ru" target="_blank" rel="noopener" class="contact-card" aria-label="Открыть GitHub организации">
-            <div class="contact-icon" aria-hidden="true">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-              </svg>
-            </div>
-            <h3>GitHub</h3>
-            <p>github.com/llm-org-ru</p>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="logo.png" alt="Логотип LLM.org.ru" loading="lazy">
-          <span>LLM.org.ru</span>
-        </div>
-        <p class="footer-text">Разработка AI‑продуктов и LLM‑ассистентов</p>
-        <p class="footer-copy">&copy; 2026 LLM.org.ru. Все права защищены.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Mobile menu toggle
-    const burger = document.getElementById('burger');
-    const navMenu = document.getElementById('navMenu');
-
-    function toggleMenu() {
-      navMenu.classList.toggle('active');
-    }
-
-    burger.addEventListener('click', toggleMenu);
-    burger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleMenu();
-      }
-    });
-
-    // Close mobile menu when clicking on a link
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-      });
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (!target) return;
-        e.preventDefault();
-        const headerOffset = 84;
-        const elementPosition = target.offsetTop;
-        const offsetPosition = elementPosition - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
+        // Close menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMenu(false);
+            });
         });
-      });
-    });
 
-    // Header background on scroll
-    const header = document.querySelector('.header');
-    window.addEventListener('scroll', () => {
-      header.style.background = (window.scrollY > 50) ? 'rgba(0, 0, 0, 0.98)' : 'rgba(0, 0, 0, 0.95)';
-    });
-  </script>
+        // Smooth reveal animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Auto-observe elements
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('opacity-0'); // Prepare for fade-in
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
